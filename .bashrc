@@ -1,5 +1,5 @@
 # This is in ~/.profile; why is it needed here?
-export PATH="${PATH}${PATH+:}~/bin"
+export PATH="${PATH}${PATH+:}~/bin:~/.gem/ruby/1.9.1/bin"
 
 # If not running interactively, don't do anything
 # http://dotfiles.org/~zanko/.bashrc
