@@ -31,6 +31,7 @@ elif [ "$command" = 'u' ]
   $is_mounted ||
     ( echo "Bucket \"${bucket_name}\" is not mounted" && exit 1 )
   sudo umount "${HOME}/s3/${bucket_name}"
+  rmdir "${HOME}/s3/${bucket_name}"
   echo "${bucket_name} was umounted from ${HOME}/s3/${bucket_name}"
 elif [ "$command" = 'h' ]
   then
