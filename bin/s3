@@ -1,0 +1,41 @@
+#!/bin/sh
+
+command="$1"
+bucket_name="$2"
+
+# Exit on error
+set -e
+
+usage() {
+  echo "usage: $0 <command> <bucket name>"
+  echo 'Command can be m (mount), u (umount) or h (help).'
+}
+
+# Is it already mounted?
+if [ "$bucket_name" != '' ]
+  then
+  is_mounted=false
+  [ `mount|grep -c "${HOME}/s3/${bucket_name}"` = '0' ] || is_mounted=true
+fi
+
+if [ "$command" = 'm' ]
+  # Mount
+  then
+  $is_mounted &&
+    ( echo "Bucket \"${bucket_name}\" is already mounted" && exit 1 )
+  mkdir -p "${HOME}/s3/${bucket_name}"
+  s3fs "${bucket_name}" "${HOME}/s3/${bucket_name}"
+  echo "${bucket_name} is mounted in ${HOME}/s3/${bucket_name}"
+elif [ "$command" = 'u' ]
+  then
+  $is_mounted ||
+    ( echo "Bucket \"${bucket_name}\" is not mounted" && exit 1 )
+  sudo umount "${HOME}/s3/${bucket_name}"
+  echo "${bucket_name} was umounted from ${HOME}/s3/${bucket_name}"
+elif [ "$command" = 'h' ]
+  then
+  usage
+else
+  usage
+  exit 1
+fi
