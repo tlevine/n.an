@@ -2,5 +2,10 @@
 
 REPO_NAME="$1"
 
-git remote add t git.thomaslevine.com:$REPO_NAME
-ssh git.thomaslevine.com "git init --bare $REPO_NAME"
+git remote add t git.thomaslevine.com:"${REPO_NAME}".git
+ssh git.thomaslevine.com "git init --bare ${REPO_NAME}.git"
+ssh git.thomaslevine.com "sh ~/git2html/git2html.sh \
+     -p ${REPO_NAME} \
+     -l git.thomaslevine.com:${REPO_NAME}.git \
+     -r ~/${REPO_NAME}.git \
+     ~/private_git_html/${REPO_NAME}"
