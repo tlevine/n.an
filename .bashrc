@@ -1,3 +1,6 @@
+# In case the shell is opened as a non-login shell
+. ~/.profile
+
 # This is in ~/.profile; why is it needed here?
 export PATH="${PATH}${PATH+:}~/bin:~/.gem/ruby/1.9.1/bin"
 
