@@ -6,3 +6,6 @@ export PATH="${PATH}${PATH+:}~/bin"
 
 export R_HISTFILE=~/.Rhistory
 export EDITOR=vim
+
+alias aoeu='setxkbmap us'
+alias asdf='setxkbmap us -variant dvorak'
