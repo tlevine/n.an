@@ -1,3 +1,12 @@
+# One million commands of history per session
+export HISTSIZE=1000000
+
+# Ten gigabytes of maximum history size
+export HISTFILESIZE=10000000000
+
+# Save timestamps in the history.
+export HISTTIMEFORMAT="[%F %T %Z]" 
+
 # This is in ~/.profile; why is it needed here?
 export PATH="${PATH}${PATH+:}~/bin:~/.gem/ruby/1.9.1/bin"
 
@@ -8,15 +17,6 @@ export PATH="${PATH}${PATH+:}~/bin:~/.gem/ruby/1.9.1/bin"
 # echo Activating extended globs
 # http://mywiki.wooledge.org/glob
 shopt -s extglob
-
-# One million commands of history per session
-export HISTSIZE=1000000
-
-# Ten gigabytes of maximum history size
-export HISTFILESIZE=10000000000
-
-# Save timestamps in the history.
-export HISTTIMEFORMAT="[%F %T %Z]" 
 
 # Append continuously
 # http://ask.fedoraproject.org/question/18/how-to-keep-history-commands-in-sync-across
