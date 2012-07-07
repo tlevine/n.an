@@ -1,8 +1,9 @@
 #!/bin/sh
 
+set -e
+
 REPO_NAME="$1"
 
-git remote add t git.thomaslevine.com:"${REPO_NAME}".git
 ssh git.thomaslevine.com "
 set -e
 git init --bare ${REPO_NAME}.git
@@ -11,6 +12,12 @@ repo.url=${REPO_NAME}
 repo.owner=occurrence@thomaslevine.com
 ' >> /etc/cgitrepos
 "
-git checkout master
-git push t master
-echo "Check out http://git.thomaslevine.com/${REPO_NAME}"
+echo ----------------------------------------------------------------
+echo Run this
+echo ----------------------------------------------------------------
+echo git remote add t git.thomaslevine.com:"${REPO_NAME}".git
+echo git checkout master
+echo git push t master
+echo ----------------------------------------------------------------
+echo "Then check out http://git.thomaslevine.com/${REPO_NAME}"
+echo ----------------------------------------------------------------
