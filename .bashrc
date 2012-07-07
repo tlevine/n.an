@@ -1,3 +1,6 @@
+# In case the shell is opened as a non-login shell
+. ~/.profile
+
 # One million commands of history per session
 export HISTSIZE=1000000
 
@@ -7,10 +10,7 @@ export HISTFILESIZE=10000000000
 # Save timestamps in the history.
 export HISTTIMEFORMAT="[%F %T %Z]" 
 
-# This is in ~/.profile; why is it needed here?
-export PATH="${PATH}${PATH+:}~/bin:~/.gem/ruby/1.9.1/bin"
-
-# If not running interactively, don't do anything
+# Only do stuff if running interactively
 # http://dotfiles.org/~zanko/.bashrc
 [ -z "$PS1" ] && exit 0
 
@@ -22,10 +22,3 @@ shopt -s extglob
 # http://ask.fedoraproject.org/question/18/how-to-keep-history-commands-in-sync-across
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -n"
-
-echo
-echo 'Remember to start these things up after boot.'
-echo ' - Wetlands project notices scraper'
-echo
-echo 'And also just make a service that starts them properly.'
-echo
