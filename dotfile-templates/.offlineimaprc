@@ -17,6 +17,7 @@ localfolders = ~/Maildir/perluette@thomaslevine.com
 
 [Repository perluette@thomaslevine.com-remote]
 type = Gmail 
+cert_fingerprint = f3043dd689a2e7dddfbef82703a6c65ea9b634c1
 remotehost = imap.gmail.com
 remoteuser = perluette@thomaslevine.com
 remotepass = {{perluette@thomaslevine.com password}}
@@ -35,6 +36,7 @@ localfolders = ~/Maildir/thomas@scraperwiki.com
 
 [Repository thomas@scraperwiki.com-remote]
 type = Gmail 
+cert_fingerprint = f3043dd689a2e7dddfbef82703a6c65ea9b634c1
 remotehost = imap.gmail.com
 remoteuser = thomas@scraperwiki.com
 remotepass = {{thomas@scraperwiki.com password}}
